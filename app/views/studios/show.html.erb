@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<p><%= image_tag @studio.logo.url(:thumb) %></p>
+
+<% @studio.projects.each do |project| %>
+  <tr>
+    <td><%= project.title %></td>
+    <td><%= link_to "show", studio_project_path(project.studio_id, project.id) %></td>
+  </tr>
+<% end %>
+
+<p><%= link_to "Add project", new_studio_project_path(@studio.id) %>
+<p>
+<%= link_to 'Edit', edit_studio_path(@studio) %> |
+<%= link_to 'Back', studios_path %>

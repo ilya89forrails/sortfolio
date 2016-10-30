@@ -1,0 +1,46 @@
+<%= form_for @project, url: studio_projects_path(@studio), html: { multipart: true } do |f| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :industry %>
+    <%= f.text_field :industry %>
+  </div>
+
+  <div class="field">
+    <%= f.label :platform %>
+    <%= f.text_field :platform %>
+  </div>
+
+  <div class="field">
+    <%= f.label :project_type %>
+    <%= f.text_field :project_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :technology %>
+    <%= f.text_field :technology %>
+  </div>
+
+  <div class="image">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<%= form_for @studio, html: { multipart: true } do |f| %>
+  <% if studio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(studio.errors.count, "error") %> prohibited this studio from being saved:</h2>
+      <ul>
+      <% studio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :name %> <br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :city %> <br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :min_budget %> <br />
+    <%= f.text_field :min_budget %>
+  </p>
+  <p>
+    <%= f.label :max_budget %> <br />
+    <%= f.text_field :max_budget %>
+  </p>
+  <p>
+    <%= f.label :logo %> <br />
+    <%= f.file_field :logo %>
+  </p>
+  <p>
+    <%= f.label :description %> <br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.check_box :payed, {}, "true", "false"%>
+    <%= f.label :prepayed? %> 
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
