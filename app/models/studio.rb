@@ -1,8 +1,7 @@
 class Studio < ApplicationRecord
   belongs_to :user
   has_many :projects
-  has_attached_file :logo, styles: { large: '600x300>', medium: '300x150>', thumb: '100x50>' }
-  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
+  mount_uploader :logo, LogoUploader
 
 
   #scope :more_than_min_price, ->(min_price) { where("min_budget > ?", min_price) }

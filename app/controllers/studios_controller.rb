@@ -3,10 +3,11 @@ class StudiosController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :filter]
 
   def index
-    @studios = Studio.all.order(payed: :desc)
-    @studios = @studios.where("min_budget >= ?", params[min_price]) if params[min_price].present?
-    @studios = @studios.where("max_budget =< ?", params[max_price]) if params[max_price].present?
-    @studios = @studios.where("city == ?", params[city]) if params[city].present?
+    @studios = Studio.all
+    @studios = @studios.where("min_budget >= ?", params[:min_price]) if params[:min_price].present?
+    @studios = @studios.where("max_budget <= ?", params[:max_price]) if params[:max_price].present?
+    @studios = @studios.where("city == ?", params[:city]) if params[:city].present?
+    @studios = @studios.order(payed: :desc)
   end
 
   def show
@@ -62,5 +63,7 @@ class StudiosController < ApplicationController
   def studio_params
     params.require(:studio).permit(:name, :city, :min_budget, :max_budget, :logo, :technologies, :payed)
   end
+
+
 
 end

@@ -21,10 +21,11 @@
           <li><%= link_to "Login", new_user_session_path, class: "active" %></li>
         <% end %>
          <ul class="nav navbar-nav">
-            <%= simple_form_for :index do |f| %>
-            <li><%= f.input :min_price, as: :integer, label: 'Min price'%></li>
-            <li><%= f.input :max_price, as: :integer, label: 'Max price'%></li>
-            <li><%= f.input :city%></li>
+
+            <%= simple_form_for "" , :method => :get do |f| %>
+            <li><%= f.input :min_price, as: :integer, label: 'Min price', required: false %></li>
+            <li><%= f.input :max_price, as: :integer, label: 'Max price', required: false %></li>
+            <li><%= f.input :city, required: false%></li>
             <li><%= f.button :submit, 'Search'%></li>
          <%end%>
          </ul>

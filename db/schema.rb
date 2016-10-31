@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027151605) do
+ActiveRecord::Schema.define(version: 20161030161658) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
@@ -18,13 +18,10 @@ ActiveRecord::Schema.define(version: 20161027151605) do
     t.string   "platform"
     t.string   "project_type"
     t.string   "technology"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "studio_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "image"
   end
 
   create_table "studios", force: :cascade do |t|
@@ -34,13 +31,10 @@ ActiveRecord::Schema.define(version: 20161027151605) do
     t.integer  "max_budget"
     t.boolean  "payed"
     t.text     "description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
+    t.string   "logo"
   end
 
   create_table "users", force: :cascade do |t|
