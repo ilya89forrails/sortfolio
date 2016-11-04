@@ -2,11 +2,26 @@
   <% @studios.each do |studio| %>
   <div class="col-sm-6 col-md-3">
       <div class="thumbnail">
-      <%= studio.min_budget.to_s + "-" + studio.max_budget.to_s + "$" %>
-      <%= studio.city %>          
+      <div>
+      <div id="budget_and_city">
+      <%= studio.budget %>
+      <%= studio.city_id %>          
+      
+      </div>
+       <div id="logo">
+      <%if studio.logo%>
+
+      <%=  image_tag studio.logo_url(:thumb) unless studio.logo.blank? %>
+      <%end%>
+      </div>
+      
+      
+
+       </div>
+      
                 <% studio.projects.each do |project| %>
                 <%if studio.payed%>
-        		<%= link_to (image_tag project.image.url(:medium), class: 'image'), studio_path(project.studio_id) %>
+        		<%= link_to (image_tag project.image_url(:medium), class: 'image'), studio_path(project.studio_id) %>
         		<%else%>
         			<%= link_to (image_tag project.image_url(:thumb), class: 'image'), studio_path(project.studio_id) %>
 				<% end %>

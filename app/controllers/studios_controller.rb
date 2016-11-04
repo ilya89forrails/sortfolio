@@ -4,8 +4,7 @@ class StudiosController < ApplicationController
 
   def index
     @studios = Studio.all
-    @studios = @studios.where("min_budget >= ?", params[:min_price]) if params[:min_price].present?
-    @studios = @studios.where("max_budget <= ?", params[:max_price]) if params[:max_price].present?
+    @studios = @studios.where("budget = ?", params[:budget]) if params[:budget].present?
     @studios = @studios.where("city == ?", params[:city]) if params[:city].present?
     @studios = @studios.order(payed: :desc)
   end
@@ -61,9 +60,7 @@ class StudiosController < ApplicationController
   end
 
   def studio_params
-    params.require(:studio).permit(:name, :city, :min_budget, :max_budget, :logo, :technologies, :payed)
+    params.require(:studio).permit(:name, :city_id, :budget, :logo, :technologies, :payed)
   end
-
-
 
 end
