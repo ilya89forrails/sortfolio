@@ -3,13 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #logo {
-  margin-left: auto;
+  float: left;
 }
 
 #budget_and_city {
-  margin-right: auto;
+  float: right;
 }
 
 #filters {
-  margin-right: 10px;
+  margin-right: auto;
+}
+
+#picture {
+  float: center;
 }

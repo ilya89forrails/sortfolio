@@ -5,7 +5,7 @@ class StudiosController < ApplicationController
   def index
     @studios = Studio.all
     @studios = @studios.where("budget = ?", params[:budget]) if params[:budget].present?
-    @studios = @studios.where("city == ?", params[:city]) if params[:city].present?
+    @studios = @studios.where("city = ?", params[:city]) if params[:city].present?
     @studios = @studios.order(payed: :desc)
   end
 
@@ -60,7 +60,7 @@ class StudiosController < ApplicationController
   end
 
   def studio_params
-    params.require(:studio).permit(:name, :city_id, :budget, :logo, :technologies, :payed)
+    params.require(:studio).permit(:name, :city, :budget, :logo, :technologies, :payed, :user_id)
   end
 
 end

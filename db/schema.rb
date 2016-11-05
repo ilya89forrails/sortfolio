@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161101102410) do
 
   create_table "studios", force: :cascade do |t|
     t.string   "name"
-    t.integer  "city_id"
+    t.string   "city"
     t.integer  "budget"
     t.boolean  "payed"
     t.text     "description"

@@ -1,32 +1,67 @@
 <div class="row">
   <% @studios.each do |studio| %>
   <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
+    <div class="thumbnail">
       <div>
-      <div id="budget_and_city">
-      <%= studio.budget %>
-      <%= studio.city_id %>          
-      
-      </div>
-       <div id="logo">
-      <%if studio.logo%>
+        <div>
+          <div id="budget_and_city">
+          <%= studio.city %>     
+          <p><%= Studio::BUDGETS[studio.budget].first %>
+          </div>
 
-      <%=  image_tag studio.logo_url(:thumb) unless studio.logo.blank? %>
-      <%end%>
-      </div>
-      
-      
+          <div id="logo">
+            <%if studio.logo%>
+            <%= link_to (image_tag studio.logo_url(:thumb), class: 'image'), studio_path(studio.id)%>
+            <%end%>
+          </div>
+        </div>
 
-       </div>
-      
-                <% studio.projects.each do |project| %>
-                <%if studio.payed%>
-        		<%= link_to (image_tag project.image_url(:medium), class: 'image'), studio_path(project.studio_id) %>
-        		<%else%>
-        			<%= link_to (image_tag project.image_url(:thumb), class: 'image'), studio_path(project.studio_id) %>
-				<% end %>
-       <% end %>
+        <div id="picture">
+          <% studio.projects.each do |project| %>        
+            <% if studio.payed %>
+        <div class="project<%= project.studio_id %>">
+              <%= link_to (image_tag project.image_url(:medium), class: 'image'), studio_path(project.studio_id) %>
+        </div>
+            <% else %>
+              <%= link_to (image_tag project.image_url(:thumb), class: 'image'), studio_path(project.studio_id) %>
+  				  <% end %>
+          <% end %>
+        </div>
+        <% if studio.payed %>
+        <div>
+        <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1, <%=studio.id%>)">&#10094;</a>
+        <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1, <%=studio.id%>)">&#10095;</a>
+        <% end %>
+        </div>
+      </div>
       </div>
     </div>
+
   <% end %>
 </div>
+
+
+
+
+<script>
+
+var slideIndex = 1;
+
+showDivs(slideIndex);
+
+function plusDivs(n, y) {
+  showDivs(slideIndex += n, y);
+}
+
+function showDivs(n, y) {
+  var i;
+
+  var x = document.getElementsByClassName("project" + y);
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
