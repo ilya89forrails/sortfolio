@@ -1,3 +1,3 @@
 class City < ApplicationRecord
-	belongs_to :studio
+  belongs_to :studio
 end

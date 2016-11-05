@@ -52,4 +52,3 @@ gem 'simple_form'
 gem 'mini_magick'
 gem 'pg'
 gem 'rails_12factor', group: :production
-

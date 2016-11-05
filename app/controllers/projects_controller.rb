@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
   def create
     @project = @studio.projects.new(project_params)
     if @studio.payed == false && @studio.projects.count >= 1
-      flash[:notice] = 'You already have one free project.' 
+      flash[:notice] = 'You already have one free project.'
     else
       respond_to do |format|
         if @project.save
