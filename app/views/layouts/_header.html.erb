@@ -1,8 +1,5 @@
 <nav class="navbar navbar-default" role="navigation" style="background-color:#404040;color:white;">
   <div class="container">
-    <div class="navbar-header">
-      <b id="white_link"><%= link_to "SORTFOLIO", root_path, class: "navbar-brand" %></b>
-    </div>
     <div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
@@ -16,11 +13,11 @@
         <% end %>
       </ul>
 <div id = "budg_and_city" >
-<ul class="nav navbar-nav">
+ <img src="/sortfolio2.png" id="img_logo">
 Showing web designers in
-<div class="dropdown" style="display: inline">
+<div class="dropdown" style="display: inline; color: #42b6ff">
   <text class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    <b>any city</b>
+    <b style="text-decoration: underline;">any city</b>
     <span class="caret"></span>
   </text>
   <ul class="dropdown-menu" >
@@ -30,13 +27,13 @@ Showing web designers in
     <% end %>
     <li><a href="?city">Any city</a></li>
   </ul>
-</div text-align:center;>
+</div >
 
 who work on projects for
 
-<div class="dropdown" style="display: inline">
+<div class="dropdown" style="display: inline; color: #42b6ff">
   <text class=" dropdown-toggle"  id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    <b>any budget</b>
+    <b style="text-decoration: underline;">any budget</b>
     <span class="caret"></span>
   </text>
   <ul class="dropdown-menu" >
@@ -48,9 +45,12 @@ who work on projects for
     <li><a href="?budget=5">Over $50,000</a></li>
   </ul>
 </div>
-         </ul>
+
     </div><!-- /.navbar-collapse -->
 </div>
 </div>
   </div><!-- /.container-fluid -->
+  <div id = "phrase">
+   <b> Find the right web designer for your next project.</b>
+</div>
 </nav>

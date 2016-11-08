@@ -4,8 +4,8 @@ class StudiosController < ApplicationController
 
   def index
     @studios = Studio.all
-    @studios = @studios.where('budget = ?', params[:budget]) if params[:budget].present?
-    @studios = @studios.where('city = ?', params[:city]) if params[:city].present?
+    @studios = @studios.where(budget: params[:budget]) if params[:budget].present?
+    @studios = @studios.where(city: params[:city]) if params[:city].present?
     @studios = @studios.order(payed: :desc)
   end
 

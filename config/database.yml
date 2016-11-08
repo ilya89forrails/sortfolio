@@ -3,4 +3,7 @@ development:
   encoding: unicode
   database: sortfolio_development
 
-
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: sortfolio_test
